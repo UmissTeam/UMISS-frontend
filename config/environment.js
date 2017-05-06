@@ -2,6 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
+    host: 'https://somedomain.pi2.com',
     modulePrefix: 'umiss-frontend',
     environment: environment,
     rootURL: '/',
@@ -29,6 +30,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.host = 'http://127.0.0.1:8000'
   }
 
   if (environment === 'test') {
