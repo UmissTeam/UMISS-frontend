@@ -1,0 +1,15 @@
+<p>Temperature</p>
+{{#each model as |temperature|}}
+  <tr>
+    <td>
+      {{temperature.owner}}
+    </td>
+    <td>
+      {{temperature.created}}
+    </td>
+    <td>
+      {{temperature.temperature}}
+    </td>
+  </tr>
+{{/each}}
+{{outlet}}
