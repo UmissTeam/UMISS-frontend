@@ -1,0 +1,15 @@
+<p>Heartbeats</p>
+{{#each model as |heartbeat|}}
+  <tr>
+    <td>
+      {{heartbeat.owner}}
+    </td>
+    <td>
+      {{heartbeat.created}}
+    </td>
+    <td>
+      {{heartbeat.beats}}
+    </td>
+  </tr>
+{{/each}}
+{{outlet}}

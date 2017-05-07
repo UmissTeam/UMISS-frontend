@@ -1,5 +1,6 @@
 {
   "name": "umiss-frontend",
   "dependencies": {
+    "semantic-ui": "^2.2.10"
   }
 }

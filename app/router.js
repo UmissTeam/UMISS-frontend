@@ -7,6 +7,11 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('dashboard');
+  this.route('heartbeat');
+  this.route('login');
+  this.route('galvanicresistance');
+  this.route('skintemperature');
 });
 
 export default Router;
