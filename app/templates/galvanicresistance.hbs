@@ -1,0 +1,15 @@
+<p>Galvanic</p>
+{{#each model as |resistance|}}
+  <tr>
+    <td>
+      {{resistance.owner}}
+    </td>
+    <td>
+      {{resistance.created}}
+    </td>
+    <td>
+      {{resistance.resistance}}
+    </td>
+  </tr>
+{{/each}}
+{{outlet}}
