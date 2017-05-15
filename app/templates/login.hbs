@@ -1,16 +1,14 @@
-<form {{action 'authenticate' on='submit'}}>
-  <p>
-    <label for="username">Login</label>
+<div class="form-container">
+  <form {{action 'authenticate' on='submit'}}>
+    <h2>Login</h2>
     {{input id='username' placeholder='Enter Login' value=username}}
-  </p>
-  <p>
-    <label for="password">Password</label>
     {{input id='password' placeholder='Enter Password' type='password' value=password}}
-  </p>
-  <p>
-    <button type="submit">Login</button>
-  </p>
-  {{#if error}}
-    <p>{{error}}</p>
-  {{/if}}
-</form>
+    <button type="submit">
+      Login
+    </button>
+
+    {{#link-to 'signup'}}
+      Signup
+    {{/link-to}}
+  </form>
+</div>

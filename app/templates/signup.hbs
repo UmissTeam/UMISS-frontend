@@ -1,0 +1,24 @@
+<div class="form-container">
+  <form {{action 'signup' on="submit"}}>
+    <h2>Sign up</h2>
+
+    {{input id='username' placeholder='Enter Login' value=username}}
+    {{input id='password' placeholder='Enter Password' type='password' value=password}}
+
+    {{#if signupError}}
+      <p> {{signupError}} </p>
+    {{/if}}
+
+    <button {{action 'signup' username password}} disabled={{isSigningUp}}>
+      {{#if isSigningUp}}
+        Signing up...
+      {{else}}
+        Sign up
+      {{/if}}
+    </button>
+
+    {{#link-to 'login'}}
+      Login
+    {{/link-to}}
+  </form>
+</div>

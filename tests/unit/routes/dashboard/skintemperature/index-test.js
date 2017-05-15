@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('route:galvanicresistance', 'Unit | Route | galvanicresistance', {
+moduleFor('route:dashboard/skintemperature/index', 'Unit | Route | dashboard/skintemperature/index', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });

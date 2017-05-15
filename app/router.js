@@ -7,11 +7,13 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('dashboard');
-  this.route('heartbeat');
+  this.route('dashboard', { path: '/' }, function() {
+    this.route('skintemperature', function() {});
+    this.route('galvanicresistance', function() {});
+    this.route('heartbeat', function() {});
+  });
   this.route('login');
-  this.route('galvanicresistance');
-  this.route('skintemperature');
+  this.route('signup');
 });
 
 export default Router;

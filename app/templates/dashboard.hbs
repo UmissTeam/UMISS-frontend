@@ -1,2 +1,46 @@
-<p>Dashboard</p>
-{{outlet}}
+<div class="navbar">
+  <div class="navbar-period">
+    <button>
+      &#60;
+    </button>
+    <span class="period-title">
+      March 2016
+    </span>
+    <button>
+      >
+    </button>
+  </div>
+  <div class="user-actions">
+    {{#if session.isAuthenticated}}
+      <a {{action 'invalidateSession'}}>
+        <button>Logout</button>
+      </a>
+    {{else}}
+      {{#link-to 'login'}}
+        <button> Login </button>
+      {{/link-to}}
+    {{/if}}
+  </div>
+</div>
+<div class="sidebar">
+  <ul class="sidebar-items">
+    <li class="sidebar-item">
+      {{#link-to 'dashboard.heartbeat'}}
+        <center>Heart Beats</center>
+      {{/link-to}}
+    </li>
+    <li class="sidebar-item">
+      {{#link-to 'dashboard.galvanicresistance'}}
+        <center>Galvanic Resistance</center>
+      {{/link-to}}
+    </li>
+    <li class="sidebar-item">
+      {{#link-to 'dashboard.skintemperature'}}
+        <center>Skin Temperature</center>
+      {{/link-to}}
+    </li>
+  </ul>
+</div>
+<div class="main">
+  {{outlet}}
+</div>

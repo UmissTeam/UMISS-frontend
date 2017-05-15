@@ -33,8 +33,8 @@ module.exports = function(environment) {
     ENV.host = 'http://127.0.0.1:8000'
     ENV['ember-simple-auth'] = {
       authenticationRoute: 'login',
-      routeAfterAuthentication: 'dashboard',
-      routeIfAlreadyAuthenticated: 'dashboard'
+      routeAfterAuthentication: '/',
+      routeIfAlreadyAuthenticated: '/'
     };
   }
 

@@ -1,12 +1,1 @@
-{{#if session.isAuthenticated}}
-  <a {{action 'invalidateSession'}}>Logout</a>
-{{else}}
-  {{#link-to 'login'}}Login{{/link-to}}
-{{/if}}
-<br>
-{{#link-to 'heartbeat'}}Heartbeats{{/link-to}}
-<br>
-{{#link-to 'galvanicresistance'}}Galvanic{{/link-to}}
-<br>
-{{#link-to 'skintemperature'}}Temperature{{/link-to}}
 {{outlet}}
