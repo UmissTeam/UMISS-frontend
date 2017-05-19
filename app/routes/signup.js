@@ -4,25 +4,20 @@ import ENV from "../config/environment";
 export default Ember.Route.extend({
 
   actions: {
-    signup() {
-      let {username, password} = this.getProperties(
-        'username',
-        'password'
-      );
-
+    signup(username, password) {
       Ember.$.ajax({
-        url: ENV.host + '/users',
+        url: ENV.host + '/api/monitors',
         type: 'POST',
-        data: JSON.stringify({
+        data: {
           username: username,
           password: password
-        }),
-        contentType: 'application/vnd.api+json',
-        dataType: 'json'
+        },
       }).then((response) => {
-        this.set('signupComplete', true);
+        this.controller.set('signupComplete', true);
       }, (xhr, status, error) => {
-        this.set('error', xhr.responseText);
+        this.set('error', error);
+        console.log(error)
+        this.controller.set('error', true)
       });
     }
   }

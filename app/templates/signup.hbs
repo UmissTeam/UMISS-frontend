@@ -20,5 +20,10 @@
     {{#link-to 'login'}}
       Login
     {{/link-to}}
+    {{#if error}}
+      <p>
+        <div class="alert alert-danger">Username already used.</div>
+      </p>
+    {{/if}}
   </form>
 </div>
