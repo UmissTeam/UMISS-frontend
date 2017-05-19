@@ -10,5 +10,11 @@
     {{#link-to 'signup'}}
       Signup
     {{/link-to}}
+
+    {{#if error}}
+      <p>
+        <div class="alert alert-danger">Invalid username or password.</div>
+      </p>
+    {{/if}}
   </form>
 </div>
