@@ -4,12 +4,13 @@
 
     {{input id='username' placeholder='Enter Login' value=username}}
     {{input id='password' placeholder='Enter Password' type='password' value=password}}
+    {{input id='token' placeholder='Insert a valid Token' value=token}}
 
     {{#if signupError}}
       <p> {{signupError}} </p>
     {{/if}}
 
-    <button {{action 'signup' username password}} disabled={{isSigningUp}}>
+    <button {{action 'signup' username password token}} disabled={{isSigningUp}}>
       {{#if isSigningUp}}
         Signing up...
       {{else}}
