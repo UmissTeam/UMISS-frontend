@@ -2,9 +2,12 @@ import Ember from 'ember';
 import ENV from "../config/environment";
 
 export default Ember.Route.extend({
+  ajax: Ember.inject.service(),
+  session: Ember.inject.service(),
 
   actions: {
     signup(username, password, token) {
+      this.controller.set('isSigningUp', true);
       Ember.$.ajax({
         url: ENV.host + '/api/monitors',
         type: 'POST',
@@ -13,13 +16,12 @@ export default Ember.Route.extend({
           password: password,
           token: token
         },
-      }).then((response) => {
-        this.controller.set('signupComplete', true);
-      }, (xhr, status, error) => {
-        this.set('error', error);
-        console.log(error)
-        this.controller.set('error', true)
-      });
+      }).then((response) => this.get('session').authenticate('authenticator:drf-token-authenticator', username, password))
+        .catch((response) => {
+          this.controller.set('error', true)
+          this.controller.set('isSigningUp', false);
+        });
+      // .finally((response) => this.controller.set('isSigningUp', false));
     }
   }
 });
