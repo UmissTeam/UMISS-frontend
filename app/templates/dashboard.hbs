@@ -11,6 +11,9 @@
     </button>
   </div>
   <div class="user-actions">
+    <a>
+      Bem vindo, {{session.currentMonitor.username}}!
+    </a>
     {{#if session.isAuthenticated}}
       <a {{action 'invalidateSession'}}>
         <button>Logout</button>
@@ -18,6 +21,9 @@
     {{else}}
       {{#link-to 'login'}}
         <button> Login </button>
+      {{/link-to}}
+      {{#link-to 'signup'}}
+        <button> or Signup </button>
       {{/link-to}}
     {{/if}}
   </div>
