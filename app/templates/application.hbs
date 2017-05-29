@@ -1,1 +1,48 @@
-{{outlet}}
+{{#bs-navbar fluid=fluid as |navbar|}}
+  {{#navbar.content}}
+    {{#navbar.nav as |nav|}}
+      {{#if session.isAuthenticated}}
+        {{#nav.item}}
+          {{#nav.link-to "dashboard.heartbeat"}}
+            Batimento Cardíaco
+          {{/nav.link-to}}
+        {{/nav.item}}
+        {{#nav.item}}
+          {{#nav.link-to "dashboard.galvanicresistance"}}
+            Resistência Galvânica
+          {{/nav.link-to}}
+        {{/nav.item}}
+        {{#nav.item}}
+          {{#nav.link-to "dashboard.skintemperature"}}
+            Temperatura Corporal
+          {{/nav.link-to}}
+        {{/nav.item}}
+        {{#nav.item}}
+        <a>
+          Bem vindo, {{session.currentMonitor.username}}!
+        </a>
+        {{/nav.item}}
+        {{#nav.item}}
+          <a href="#" {{action 'invalidateSession'}}>
+            Logout
+          </a>
+        {{/nav.item}}
+      {{else}}
+        {{#nav.item}}
+          {{#nav.link-to "login"}}
+            Logar
+          {{/nav.link-to}}
+        {{/nav.item}}
+        {{#nav.item}}
+          {{#nav.link-to "signup"}}
+            Cadastrar
+          {{/nav.link-to}}
+        {{/nav.item}}
+      {{/if}}
+    {{/navbar.nav}}
+  {{/navbar.content}}
+{{/bs-navbar}}
+
+<div class="container">
+  {{outlet}}
+</div>

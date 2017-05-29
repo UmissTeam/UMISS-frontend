@@ -1,20 +1,15 @@
-<div class="form-container">
-  <form {{action 'authenticate' on='submit'}}>
-    <h2>Login</h2>
-    {{input id='username' placeholder='Enter Login' value=username}}
-    {{input id='password' placeholder='Enter Password' type='password' value=password}}
-    <button type="submit">
-      Login
-    </button>
+<div class="container">
+  <h1><center>Login</center></h1>
 
-    {{#link-to 'signup'}}
-      Signup
-    {{/link-to}}
+  {{#bs-form formLayout=formLayout model=this onSubmit=(action "authenticate") as |form|}}
+    {{form.element controlType="username" label="Usuário" property="username" required=true}}
+    {{form.element controlType="password" label="Senha" property="password" required=true}}
+    {{bs-button defaultText="Logar" type="primary" buttonType="submit"}}
+  {{/bs-form}}
 
-    {{#if error}}
-      <p>
-        <div class="alert alert-danger">Invalid username or password.</div>
-      </p>
-    {{/if}}
-  </form>
+  {{#if error}}
+    <p>
+      <div class="alert alert-danger">Invalid username or password.</div>
+    </p>
+  {{/if}}
 </div>
