@@ -30,7 +30,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.host = 'http://127.0.0.1:8000'
+    // ENV.host = 'http://127.0.0.1:8000'
+    ENV.host = 'http://104.196.160.171';
     ENV['ember-simple-auth'] = {
       authenticationRoute: 'login',
       routeAfterAuthentication: '/',
