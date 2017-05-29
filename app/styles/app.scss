@@ -12,31 +12,6 @@ body {
 
 .red { color: $red }
 
-.form-container {
-  width: 100%;
-  text-align: center;
-  margin-top: 100px;
-
-  form {
-    display: inline-block;
-
-    input {
-      display: block;
-      height: 25px;
-      width: 200px;
-      margin: 10px;
-      border-radius: 3px;
-      border: 2px solid gray;
-      padding-left: 10px;
-    }
-  }
-
-  a {
-    margin-top: 20px;
-    display: block;
-  }
-}
-
 .navbar {
   left: 0;
   top: 0;
@@ -246,3 +221,5 @@ button[disabled] {
 .pika-button {
   border-radius: 0 !important;
 }
+
+@import "ember-bootstrap/bootstrap";
