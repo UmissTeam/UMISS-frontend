@@ -12,9 +12,10 @@
       {{input id='password' type='password' value=password class="form-control"}}
     </div>
 
-    {{#if signupError}}
-      <p> {{signupError}} </p>
-    {{/if}}
+    <div class="form-group">
+      <label>Token da Cadeira</label>
+      {{input id='token' value=token class="form-control"}}
+    </div>
 
     <button {{action 'signup' username password}} class="btn btn-info" disabled={{isSigningUp}}>
       {{#if isSigningUp}}
@@ -23,5 +24,11 @@
         Cadastrar
       {{/if}}
     </button>
+
+    {{#if error}}
+      <div class="alert alert-danger">
+        Usuário já cadastrado.
+      </div>
+    {{/if}}
   </form>
 </div>

@@ -1,15 +1,13 @@
 <div class="container">
   <h1><center>Login</center></h1>
-
   {{#bs-form formLayout=formLayout model=this onSubmit=(action "authenticate") as |form|}}
     {{form.element controlType="username" label="Usuário" property="username" required=true}}
     {{form.element controlType="password" label="Senha" property="password" required=true}}
     {{bs-button defaultText="Logar" type="primary" buttonType="submit"}}
   {{/bs-form}}
-
   {{#if error}}
-    <p>
-      <div class="alert alert-danger">Invalid username or password.</div>
-    </p>
+    <div class="alert alert-danger">
+        Usuário ou senha inválido.
+    </div>
   {{/if}}
 </div>

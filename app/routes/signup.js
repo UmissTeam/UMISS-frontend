@@ -16,7 +16,10 @@ export default Ember.Route.extend({
           password: password,
           token: token
         },
-      }).then((response) => this.get('session').authenticate('authenticator:drf-token-authenticator', username, password))
+      }).then((response) => {
+          this.get('session').authenticate('authenticator:drf-token-authenticator', username, password)
+          this.controller.set('SignedUp', true);
+      })
         .catch((response) => {
           this.controller.set('error', true)
           this.controller.set('isSigningUp', false);
