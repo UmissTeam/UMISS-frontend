@@ -18,9 +18,9 @@
           {{/nav.link-to}}
         {{/nav.item}}
         {{#nav.item}}
-        <a>
-          Bem vindo, {{session.currentMonitor.username}}!
-        </a>
+          {{#link-to 'dashboard.settings'}}
+            Bem vindo, {{session.currentMonitor.username}}!
+          {{/link-to}}
         {{/nav.item}}
         {{#nav.item}}
           <a href="#" {{action 'invalidateSession'}}>

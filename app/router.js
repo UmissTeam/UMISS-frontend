@@ -11,6 +11,7 @@ Router.map(function() {
     this.route('skintemperature', function() {});
     this.route('galvanicresistance', function() {});
     this.route('heartbeat', function() {});
+    this.route('settings');
   });
   this.route('login');
   this.route('signup');
