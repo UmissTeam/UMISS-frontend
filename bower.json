@@ -1,6 +1,7 @@
 {
   "name": "umiss-frontend",
   "dependencies": {
-    "semantic-ui": "^2.2.10"
+    "semantic-ui": "^2.2.10",
+    "chartjs": "2.5.0"
   }
 }
