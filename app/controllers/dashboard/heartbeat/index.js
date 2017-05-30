@@ -7,8 +7,17 @@ export default Ember.Controller.extend({
       labels: this.get('model').mapBy('created').slice(-10).map(function(hour) { return moment(hour).format("DD-MM, HH:mm") }),
       datasets: [{
         label: 'Batimentos cardíacos por minuto',
-        data: this.get('model').mapBy('beats').slice(-10)
+        data: this.get('model').mapBy('beats').slice(-10),
+        backgroundColor: [
+          'rgba(215, 250, 250, 0.2)',
+        ],
+        borderColor: [
+          'rgba(255,99,132,1)',
+        ],
       }]
     }
-  }).property('model')
+  }),
+  labels: Ember.computed('data', function() {
+    return this.get('data').labels;
+  })
 });

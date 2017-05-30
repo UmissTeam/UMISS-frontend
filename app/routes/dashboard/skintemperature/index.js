@@ -7,10 +7,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   },
 
   afterModel: function(model) {
-    // console.log('after model');
     var n1 = model.content.length;
+    var store = this.store;
     var that = this;
-    // console.log(that.controllerFor('dashboard.skintemperature.index'));
     var fn = function() {
       Ember.run.later((function() {
         that.store.findAll('skin-temperature').then(function(value) {
@@ -21,7 +20,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
             n1 = value.content.length;
           }
         }, function(reason) {
-          // console.log("reject");
         });
         fn();
       }), 1000);
