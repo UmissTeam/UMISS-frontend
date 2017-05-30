@@ -1,18 +1,1 @@
-{{#each model as |temperature|}}
-  <tr>
-    <td>
-      {{temperature.owner}}
-    </td>
-    <td>
-      {{temperature.created}}
-    </td>
-    <td>
-      {{temperature.temperature}}
-    </td>
-    <td>
-      {{temperature.is_critical}}
-    </td>
-  </tr>
-{{/each}}
-
 {{ember-chart type='line' data=data }}
