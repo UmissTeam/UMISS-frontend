@@ -17,7 +17,7 @@
       {{input id='token' value=token class="form-control"}}
     </div>
 
-    <button {{action 'signup' username password}} class="btn btn-info" disabled={{isSigningUp}}>
+    <button {{action 'signup' username password token}} class="btn btn-info" disabled={{isSigningUp}}>
       {{#if isSigningUp}}
         Cadastrando...
       {{else}}
