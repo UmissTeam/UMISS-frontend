@@ -34,8 +34,8 @@ module.exports = function(environment) {
     // ENV.host = 'http://104.196.160.171'
     ENV['ember-simple-auth'] = {
       authenticationRoute: 'login',
-      routeAfterAuthentication: '/',
-      routeIfAlreadyAuthenticated: '/'
+      routeAfterAuthentication: 'dashboard.heartbeat',
+      routeIfAlreadyAuthenticated: 'dashboard.heartbeat'
     };
   }
 
