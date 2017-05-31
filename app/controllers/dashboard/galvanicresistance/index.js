@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
   moment: Ember.inject.service(),
   data: Ember.computed('model', function() {
     return {
-      labels: this.get('model').mapBy('created').slice(-10).map(function(hour) { return moment(hour).format("DD-MM, HH:mm") }),
+      labels: this.get('model').mapBy('created').slice(-10).map(function(hour) { return moment(hour).format("DD-MM, HH:mm:ss") }),
       datasets: [{
         label: 'Variação da resistência em Ohm',
         data: this.get('model').mapBy('resistance').slice(-10),
