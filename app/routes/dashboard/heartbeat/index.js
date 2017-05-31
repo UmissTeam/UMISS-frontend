@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import ENV from "umiss-frontend/config/environment";
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model: function() {
@@ -24,7 +25,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
           console.log("reject");
         });
         fn();
-      }), 1000);
+      }), ENV.requestTime);
     }
     fn()
   },
