@@ -38,7 +38,7 @@ export default Ember.Controller.extend({
     return this.get('model').map(function(item) { return moment(item.get('created')).format("DD-MM, HH:mm:ss") })
   }),
 
-  chartData: Ember.computed('data', function() {
+  chartData: Ember.computed('data', 'model', 'labels', function() {
     return [
       {
         name: 'Paciente',
