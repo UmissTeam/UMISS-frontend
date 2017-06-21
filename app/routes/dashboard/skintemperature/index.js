@@ -3,8 +3,8 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 import ENV from "umiss-frontend/config/environment";
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
-  model: function() {
-    return this.store.findAll('skin-temperature');
+  model() {
+    return this.get('store').findAll('skin-temperature');
   },
 
   afterModel: function(model) {
@@ -13,11 +13,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     var that = this;
     var fn = function() {
       Ember.run.later((function() {
-        that.store.findAll('skin-temperature').then(function(value) {
+        that.store.findAll('skin-temperature', {reload: true}).then(function(value) {
           var cont = that.controller;
           if (n1 != value.content.length) {
-            cont.set('model', 0);
-            that.controllerFor('dashboard.skintemperature.index').set('model', value);
+            cont.set('model', [])
+            cont.set('model', value);
             n1 = value.content.length;
           }
         }, function(reason) {
@@ -27,5 +27,4 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     }
     fn()
   },
-
 });
