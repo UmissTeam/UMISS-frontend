@@ -2,22 +2,49 @@ import Ember from 'ember';
 import moment from 'moment';
 
 export default Ember.Controller.extend({
-  data: Ember.computed('model', function() {
+
+  chartOptions: Ember.computed('labels', function() {
     return {
-      labels: this.get('model').mapBy('created').slice(-10).map(function(hour) { return moment(hour).format("DD-MM, HH:mm:ss") }),
-      datasets: [{
-        label: 'Batimentos cardíacos por minuto',
-        data: this.get('model').mapBy('beats').slice(-10),
-        backgroundColor: [
-          'rgba(215, 250, 250, 0.2)',
-        ],
-        borderColor: [
-          'rgba(255,99,132,1)',
-        ],
-      }]
+      chart: {
+        type: 'line'
+      },
+      title: {
+        text: 'Batimentos cardíacos do Paciente'
+      },
+      xAxis: {
+        categories: this.get('labels')
+      },
+      yAxis: {
+        title: {
+          text: 'Batimentos por minuto (BPM)'
+        }
+      },
+      tooltip: {
+        valueSuffix: ' BPM'
+      },
+      legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle',
+        borderWidth: 0
+      }
     }
   }),
-  labels: Ember.computed('data', function() {
-    return this.get('data').labels;
+
+  data: Ember.computed('model', function() {
+    return this.get('model').map(function(item) { return item.get('beats') })
+  }),
+
+  labels: Ember.computed('model', function() {
+    return this.get('model').map(function(item) { return moment(item.get('created')).format("DD-MM, HH:mm:ss") })
+  }),
+
+  chartData: Ember.computed('data', 'model', 'labels', function() {
+    return [
+      {
+        name: 'Paciente',
+        data: this.get('data')
+      }
+    ]
   })
 });
