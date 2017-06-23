@@ -1,6 +1,11 @@
 {{#bs-navbar fluid=fluid as |navbar|}}
   {{#navbar.content}}
     {{#navbar.nav as |nav|}}
+      {{#nav.item}}
+        {{#nav.link-to "dashboard"}}
+          Dashboard
+        {{/nav.link-to}}
+      {{/nav.item}}
       {{#if session.isAuthenticated}}
         {{#nav.item}}
           {{#nav.link-to "dashboard.heartbeat"}}
