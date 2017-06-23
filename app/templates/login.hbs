@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container jumbotron">
   <h1><center>Login</center></h1>
   {{#bs-form formLayout=formLayout model=this onSubmit=(action "authenticate") as |form|}}
     {{form.element controlType="username" label="Usuário" property="username" required=true}}

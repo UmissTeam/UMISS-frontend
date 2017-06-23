@@ -4,6 +4,8 @@ $color3: #C0FDFB;
 $color4: #64B6AC;
 $color5: #5D737E;
 
+@import "ember-bootstrap/bootstrap";
+
 .navbar.navbar-default.ember-view {
   background-color: $color4;
   border: none;
@@ -33,4 +35,14 @@ body {
   background-color: $color4 !important;
 }
 
-@import "ember-bootstrap/bootstrap";
+h1, label {
+  color: $color5;
+}
+
+.jumbotron h1 {
+  color: $color5;
+}
+
+.container.jumbotron {
+  background-color: $color1;
+}
