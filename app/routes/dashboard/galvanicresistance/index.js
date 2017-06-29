@@ -4,30 +4,27 @@ import ENV from "umiss-frontend/config/environment";
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model: function() {
-    return this.store.findAll('galvanic-resistance');
+    return this.get('store').findAll('galvanic-resistance');
   },
 
   afterModel: function(model) {
-    // console.log('after model');
     var n1 = model.content.length;
+    var store = this.store;
     var that = this;
-    // console.log(that.controllerFor('dashboard.galvanicresistance.index'));
     var fn = function() {
       Ember.run.later((function() {
-        that.store.findAll('galvanic-resistance').then(function(value) {
+        that.store.findAll('galvanic-resistance', {reload: true}).then(function(value) {
           var cont = that.controller;
           if (n1 != value.content.length) {
-            cont.set('model', 0);
-            that.controllerFor('dashboard.galvanicresistance.index').set('model', value);
+            cont.set('model', [])
+            cont.set('model', value);
             n1 = value.content.length;
           }
         }, function(reason) {
-          // console.log("reject");
         });
         fn();
       }), ENV.requestTime);
     }
     fn()
-  },
-
+  }
 });
