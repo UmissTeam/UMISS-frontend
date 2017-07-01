@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    host: 'https://somedomain.pi2.com',
+    host: 'https://wheelshare-umiss.com',
     modulePrefix: 'umiss-frontend',
     environment: environment,
     rootURL: '/',
@@ -32,7 +32,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
     // ENV.host = 'http://127.0.0.1:8000'
     // ENV.host = 'http://104.196.160.171'
-    ENV.host = 'http://wheelshare-umiss.com'
+    ENV.host = 'https://wheelshare-umiss.com'
     ENV.requestTime = 3000;
     ENV['ember-simple-auth'] = {
       authenticationRoute: 'login',
@@ -53,7 +53,13 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.host = 'https://wheelshare-umiss.com'
+    ENV.requestTime = 3000;
+    ENV['ember-simple-auth'] = {
+      authenticationRoute: 'login',
+      routeAfterAuthentication: 'dashboard.heartbeat',
+      routeIfAlreadyAuthenticated: 'dashboard.heartbeat'
+    };
   }
 
   return ENV;
