@@ -31,7 +31,8 @@ export default Ember.Controller.extend({
   }),
 
   data: Ember.computed('model', function() {
-    return this.get('model').map(function(item) { return item.get('beats') })
+    var arr = this.get('model').map(function(item) { return item.get('beats') })
+    return arr.reverse()
   }),
 
   labels: Ember.computed('model', function() {
