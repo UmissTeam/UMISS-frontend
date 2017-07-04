@@ -41,7 +41,7 @@ export default Ember.Controller.extend({
   }.property('model'),
 
   labels: Ember.computed('model', function() {
-    return this.get('model').map(function(item) { return moment(item.get('created')).format("DD-MM, HH:mm:ss") })
+    return this.get('model').sortBy('created').map(function(item) { return moment(item.get('created')).format("DD-MM, HH:mm:ss") })
   }),
 
   chartData: Ember.computed('data', 'model', 'labels', function() {
