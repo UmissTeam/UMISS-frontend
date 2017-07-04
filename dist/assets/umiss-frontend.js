@@ -840,12 +840,17 @@ define('umiss-frontend/controllers/dashboard/heartbeat/index', ['exports', 'embe
       };
     }),
 
-    data: _ember['default'].computed('model', function () {
-      var arr = this.get('model').map(function (item) {
+    data: (function () {
+      var arr = this.get('model').sortBy('created').map(function (item) {
         return item.get('beats');
       });
-      return arr.reverse();
-    }),
+      var length = arr.length;
+      while (length > 40) {
+        arr.removeAt(0);
+        length = arr.length;
+      }
+      return arr;
+    }).property('model'),
 
     labels: _ember['default'].computed('model', function () {
       return this.get('model').map(function (item) {
@@ -1086,12 +1091,17 @@ define('umiss-frontend/controllers/dashboard/skintemperature/index', ['exports',
       };
     }),
 
-    data: _ember['default'].computed('model', function () {
-      var arr = this.get('model').map(function (item) {
+    data: (function () {
+      var arr = this.get('model').sortBy('created').map(function (item) {
         return item.get('temperature');
       });
-      return arr.reverse();
-    }),
+      var length = arr.length;
+      while (length > 40) {
+        arr.removeAt(0);
+        length = arr.length;
+      }
+      return arr;
+    }).property('model'),
 
     labels: _ember['default'].computed('model', function () {
       return this.get('model').map(function (item) {
@@ -1987,6 +1997,6 @@ catch(err) {
 });
 
 if (!runningTests) {
-  require("umiss-frontend/app")["default"].create({"name":"umiss-frontend","version":"0.0.0+746d76e8"});
+  require("umiss-frontend/app")["default"].create({"name":"umiss-frontend","version":"0.0.0+8436b53d"});
 }
 //# sourceMappingURL=umiss-frontend.map
