@@ -30,10 +30,15 @@ export default Ember.Controller.extend({
     }
   }),
 
-  data: Ember.computed('model', function() {
-    var arr = this.get('model').map(function(item) { return item.get('beats') })
-    return arr.reverse()
-  }),
+  data: function() {
+    var arr = this.get('model').sortBy('created').map(function(item) { return item.get('beats') })
+    var length = arr.length
+    while (length > 40) {
+      arr.removeAt(0)
+      length = arr.length
+    }
+    return arr
+  }.property('model'),
 
   labels: Ember.computed('model', function() {
     return this.get('model').map(function(item) { return moment(item.get('created')).format("DD-MM, HH:mm:ss") })
